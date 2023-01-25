@@ -1,0 +1,17 @@
+@font-face {
+  font-family: vt323;
+  src: url('../../assets/fonts/VT323-Regular.ttf') format("opentype");
+}
+
+* {
+  font-family: vt323, serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

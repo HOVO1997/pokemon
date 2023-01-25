@@ -1,0 +1,117 @@
+.pokemons-list {
+  padding: 0 100px;
+
+  .search {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0 10px 0;
+    background-color: rgb(48, 48, 48);
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 40px;
+
+    &-input-wrapper {
+      height: 55px;
+      width: 211px;
+      background-color: white;
+      border-radius: 5px;
+      margin-bottom: 20px;
+
+      mat-label {
+        background-color: white;
+      }
+
+      input {
+        font-size: 1.3em;
+      }
+    }
+
+    .search-description-wrapper {
+      width: 211px;
+
+      .description {
+        color: white;
+      }
+    }
+
+  }
+
+  .filter-sort-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+
+    .filter {
+      .title {
+        font-size: 26px;
+        margin-bottom: 15px;
+      }
+
+      .filter-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+
+        &-type {
+          padding: 1px 20px;
+          margin-bottom: 10px;
+          cursor: pointer;
+          margin-right: 20px;
+          border-radius: 20px;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .pokemons-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 200px;
+    .pokemon {
+      cursor: pointer;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      margin: 0 20px 20px 0;
+
+      &-img-frame {
+        width: 198px;
+        height: 180px;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(217, 217, 217);
+        border-radius: 10px;
+        img {
+          width: 150px;
+        }
+      }
+      &-info {
+        &-wrapper {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+        }
+        &-name {
+          display: flex;
+          font-size: 20px;
+          margin-bottom: 10px;
+        }
+        &-type {
+          display: inline-block;
+          float: left;
+          padding: 1px 20px;
+          margin-bottom: 10px;
+          cursor: pointer;
+          margin-right: 20px;
+          border-radius: 20px;
+          color: white;
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,60 @@
+<section class="current-pokemon">
+  <div class="current-pokemon-name">
+    {{(pokemon | async)?.name | titlecase}} № {{(pokemon | async)?.id | pokemonOrderFormatter}}
+  </div>
+  <div class="current-pokemon-wrapper">
+  <div class="left-col">
+    <div class="left-col-img-wrapper">
+      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{(pokemon | async)?.id | pokemonOrderFormatter}}.png" alt="img">
+    </div>
+  </div>
+  <div class="right-col">
+    <div class="right-col-description" *ngIf="(pokemonSpecies | async)?.flavor_text_entries as flavorTextEntries">
+      {{ flavorTextEntries[0].flavor_text ? flavorTextEntries[0].flavor_text : ''}}
+    </div>
+    <div class="right-col-stats">
+      <div class="stats-left-col">
+        <div class="stat">
+          <div class="type">Height</div>
+          <div class="value">{{(pokemon | async)?.height}} m</div>
+        </div>
+        <div class="stat">
+          <div class="type">Weight</div>
+          <div class="value">{{(pokemon | async)?.weight}} kg</div>
+        </div>
+        <div class="stat">
+          <div class="type">Base Experience</div>
+          <div class="value">{{(pokemon | async)?.base_experience}}</div>
+        </div>
+      </div>
+      <div class="stats-right-col">
+        <div class="stat">
+          <div class="type">Habitat</div>
+          <div class="value">{{(pokemonSpecies | async)?.habitat?.name}}</div>
+        </div>
+        <div class="stat">
+          <div class="type">Growth Rate</div>
+          <div class="value">{{(pokemonSpecies | async)?.growth_rate?.name}}</div>
+        </div>
+        <div class="stat">
+          <div class="type">Color</div>
+          <div class="value">{{(pokemonSpecies | async)?.color?.name}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="right-col-pokemon-types-wrapper">
+      <div class="type"
+           *ngFor="let pokemonType of (pokemon | async)?.types"
+           [appTypeColorSetter]="helperService.getTypeColor(pokemonType.type.name)">
+        {{pokemonType.type.name}}
+      </div>
+    </div>
+    <div class="right-col-stats-wrapper">
+      <div *ngFor="let pokemonStat of (pokemon | async)?.stats">
+        <span>{{pokemonStat.stat.name}}</span>
+      <mat-progress-bar mode="determinate" [value]="pokemonStat.base_stat"></mat-progress-bar>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>

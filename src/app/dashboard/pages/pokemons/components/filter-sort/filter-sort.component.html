@@ -1,0 +1,12 @@
+<section class="filter-sort-section">
+  <div class="filter">
+    <div class="title">Filter by type:</div>
+    <div class="filter-wrapper">
+      <div *ngFor="let pokemon of helperService.pokemonTypes"
+        [appTypeColorSetter]="pokemon.color"
+        class="filter-wrapper-type">
+        <span (click)="selectType(pokemon.id)">{{pokemon.type}}</span>
+      </div>
+    </div>
+  </div>
+</section>

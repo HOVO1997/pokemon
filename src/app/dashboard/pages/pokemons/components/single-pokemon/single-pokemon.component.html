@@ -1,0 +1,16 @@
+<div class="pokemon" [routerLink]="pokemon.id.toString()">
+  <div class="pokemon-img-frame">
+    <img [src]="pokemon.sprites ? pokemon.sprites.front_default : ''" alt="img">
+  </div>
+  <div class="pokemon-info">
+    <div class="pokemon-info-wrapper">
+      <div class="pokemon-info-wrapper-series">#{{pokemon.order | pokemonOrderFormatter}}</div>
+      <div class="pokemon-info-wrapper-exp">EXP: {{pokemon.base_experience}}</div>
+    </div>
+    <div class="pokemon-info-name">{{pokemon.name | titlecase}}</div>
+    <div class="pokemon-info-type"
+         *ngFor="let pokemonType of pokemon.types"
+         [appTypeColorSetter]="helperService.getTypeColor(pokemonType.type.name)">
+      {{pokemonType.type.name}}</div>
+  </div>
+</div>

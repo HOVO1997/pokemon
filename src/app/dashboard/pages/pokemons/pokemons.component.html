@@ -1,0 +1,21 @@
+<section class="pokemons-list">
+  <app-search
+    (searchMode)="onSearch($event)"
+  ></app-search>
+  <app-filter-sort
+    (typeFilter)="onFilter($event)"
+  ></app-filter-sort>
+
+  <section
+    class="pokemons-wrapper"
+    infiniteScroll
+    [infiniteScrollDistance]="1"
+    [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()">
+    <app-single-pokemon
+      *ngFor="let pokemon of pokemonsList | async"
+      [pokemon]="pokemon">
+    </app-single-pokemon>
+  </section>
+
+</section>
